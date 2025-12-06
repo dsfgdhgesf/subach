@@ -2,17 +2,17 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Не нажимай</title>
+<title></title>
 <style>
 html,body{margin:0;height:100%;cursor:pointer}
-#btn{position:fixed;top:0;left:0;width:100%;height:100%;background:#c00;font-size:60px;color:#fff;display:flex;justify-content:center;align-items:center;text-shadow:0 0 30px #000;box-shadow:inset 0 0 100px #f00}
+#btn{position:fixed;top:0;left:0;width:100%;height:100%;background:#c00;font-size:70px;color:#fff;display:flex;justify-content:center;align-items:center;text-shadow:0 0 40px #000;box-shadow:inset 0 0 120px #f00}
 #ov{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:none;justify-content:center;align-items:center;z-index:9999;opacity:0;transition:opacity .4s}
-#ov video{max-width:98%;max-height:98%;border:15px solid #f00;box-shadow:0 0 100px #f00}
+#ov video{max-width:98%;max-height:98%;border:15px solid #f00;box-shadow:0 0 120px #f00}
 </style>
 </head>
 <body>
 
-<button id="btn">КЛИКНИ В ЛЮБОМ МЕСТЕ</button>
+<button id="btn">КЛИК</button>
 
 <div id="ov">
 <video autoplay loop>
@@ -20,18 +20,19 @@ html,body{margin:0;height:100%;cursor:pointer}
 </video>
 </div>
 
-<audio id="s">
+<audio id="s" loop>
 <source src="z.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-document.body.onclick=function(){
+document.body.onclick=function e(){
 document.getElementById('ov').style.display='flex';
 setTimeout(()=>{document.getElementById('ov').style.opacity='1'},50);
 document.getElementById('btn').style.display='none';
 let a=document.getElementById('s');
 a.volume=1;
 a.play();
+document.body.onclick=null;
 }
 </script>
 </body>
