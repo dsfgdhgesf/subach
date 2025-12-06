@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Красная кнопка</title>
+<style>
+body{margin:0;height:100vh;display:flex;justify-content:center;align-items:center;background:#000;overflow:hidden}
+#btn{padding:40px 100px;font-size:48px;font-weight:bold;color:#fff;background:#c00;border:none;border-radius:25px;cursor:pointer;box-shadow:0 0 40px #f00}
+#btn:hover{background:#f00;transform:scale(1.15)}
+#ov{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:none;justify-content:center;align-items:center;z-index:9999;opacity:0;transition:opacity .5s}
+#ov video{max-width:95%;max-height:95%;border:10px solid #f00;box-shadow:0 0 80px #f00}
+</style>
+</head>
+<body>
+
+<button id="btn">НАЖМИ</button>
+
+<div id="ov">
+<video autoplay loop>
+<source src="video.mp4" type="video/mp4">
+</video>
+</div>
+
+<audio id="s" preload="auto">
+<source src="z.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.getElementById('btn').onclick=function(){
+document.getElementById('ov').style.display='flex';
+setTimeout(()=>{document.getElementById('ov').style.opacity='1'},50);
+document.getElementById('btn').style.display='none';
+let a=document.getElementById('s');
+a.volume=1;
+a.currentTime=0;
+a.play();
+}
+</script>
+</body>
+</html>
